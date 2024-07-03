@@ -1,5 +1,6 @@
 # Ignorer l'environnement virtuel
 env/
+rst/
 
 # Ignorer les fichiers et dossiers spécifiques à l'OS
 .DS_Store
