@@ -1,0 +1,26 @@
+# Ignorer l'environnement virtuel
+env/
+
+# Ignorer les fichiers et dossiers spécifiques à l'OS
+.DS_Store
+Thumbs.db
+
+# Ignorer les fichiers de logs
+logs/
+*.log
+
+# Ignorer les fichiers compilés par Python
+__pycache__/
+*.py[cod]
+
+# Ignorer les fichiers de configuration des éditeurs de texte/IDE
+.vscode/
+.idea/
+
+# Ignorer les fichiers de configuration du système
+*.swp
+*~
+
+# Ignorer les fichiers de dépendances
+node_modules/
+venv/
