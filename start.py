@@ -23,26 +23,11 @@ def build_nginx_image():
     run_command("docker build -t nginx-proxy .")
     os.chdir("..")
 
-def setup_flask_apps(app_directories):
+def start_flask_apps(app_directories):
     for app_dir in app_directories:
         os.chdir(app_dir)
-        run_command(f"{sys.executable} -m pip install -r requirements.txt")
+        run_command(f"{sys.executable} src/main.py")
         os.chdir("..")
-
-def create_renew_script():
-    script_content = """#!/bin/bash
-docker run -it --rm --name certbot -v /etc/letsencrypt:/etc/letsencrypt -v /var/www/certbot:/var/www/certbot certbot/certbot renew
-docker exec nginx-proxy nginx -s reload
-"""
-    script_path = "/usr/local/bin/renew_cert.sh"
-    with open(script_path, "w") as script_file:
-        script_file.write(script_content)
-    run_command(f"chmod +x {script_path}")
-    return script_path
-
-def create_cron_job(script_path):
-    cron_command = f"0 2 * * * {script_path} >> /var/log/renew_cert.log 2>&1"
-    run_command(f"(crontab -l ; echo \"{cron_command}\") | crontab -")
 
 def main():
     if not is_docker_running():
@@ -57,19 +42,14 @@ def main():
     else:
         print("L'image nginx-proxy existe déjà.")
 
-    # Setup Flask applications
+    # Start Flask applications
     flask_apps = ["app"]
-    setup_flask_apps(flask_apps)
+    start_flask_apps(flask_apps)
 
-    # Create and configure renew script and cron job on Linux
-    if platform.system() == "Linux":
-        script_path = create_renew_script()
-        create_cron_job(script_path)
-        print("Cron job pour le renouvellement des certificats SSL a été créé.")
-    else:
-        print("La création de tâches cron est uniquement prise en charge sur Linux.")
+    # Start Nginx container
+    run_command("docker run -d --name nginx-proxy -p 80:80 -p 443:443 nginx-proxy")
 
-    print("Configuration terminée avec succès.")
+    print("Toutes les applications Flask et le conteneur Nginx ont démarré avec succès.")
 
 if __name__ == "__main__":
     main()
