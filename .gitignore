@@ -1,6 +1,6 @@
 # Ignorer l'environnement virtuel
 env/
-rst/
+
 
 # Ignorer les fichiers et dossiers spécifiques à l'OS
 .DS_Store
@@ -25,3 +25,5 @@ __pycache__/
 # Ignorer les fichiers de dépendances
 node_modules/
 venv/
+
+**/SSL/
