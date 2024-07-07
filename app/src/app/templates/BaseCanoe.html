@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mon Site Web{% endblock %}</title>
+    <style>
+        @charset "UTF-8";
+        /*!
+         * Université de Sherbrooke Stylesheet
+         * Basé sur Bootstrap v3.3.7 (http://getbootstrap.com)
+         * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+         */
+        /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+        @import url("http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Montserrat:700|Merriweather:400italic");
+
+        html {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        main,
+        menu,
+        nav,
+        section,
+        summary {
+            display: block;
+        }
+
+        audio,
+        canvas,
+        progress,
+        video {
+            display: inline-block;
+            vertical-align: baseline;
+        }
+
+        audio:not([controls]) {
+            display: none;
+            height: 0;
+        }
+
+        [hidden],
+        template {
+            display: none;
+        }
+
+        a {
+            background-color: transparent;
+            color: #00796b;
+        }
+
+        a:active,
+        a:hover {
+            outline: 0;
+        }
+
+        abbr[title] {
+            border-bottom: 1px dotted;
+        }
+
+        b,
+        strong {
+            font-weight: 700;
+        }
+
+        dfn {
+            font-style: italic;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin: 0.67em 0;
+        }
+
+        mark {
+            background: #ff0;
+            color: #000;
+        }
+
+        small {
+            font-size: 80%;
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+        }
+
+        sup {
+            top: -.5em;
+        }
+
+        sub {
+            bottom: -.25em;
+        }
+
+        img {
+            border: 0;
+        }
+
+        svg:not(:root) {
+            overflow: hidden;
+        }
+
+        figure {
+            margin: 1em 40px;
+        }
+
+        hr {
+            box-sizing: content-box;
+            height: 0;
+        }
+
+        pre {
+            overflow: auto;
+        }
+
+        code,
+        kbd,
+        pre,
+        samp {
+            font-family: monospace, monospace;
+            font-size: 1em;
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            color: inherit;
+            font: inherit;
+            margin: 0;
+        }
+
+        button {
+            overflow: visible;
+        }
+
+        button,
+        select {
+            text-transform: none;
+        }
+
+        button,
+        html input[type="button"],
+        input[type="reset"],
+        input[type="submit"] {
+            -webkit-appearance: button;
+            cursor: pointer;
+        }
+
+        button[disabled],
+        html input[disabled] {
+            cursor: default;
+        }
+
+        button::-moz-focus-inner,
+        input::-moz-focus-inner {
+            border: 0;
+            padding: 0;
+        }
+
+        input {
+            line-height: normal;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            box-sizing: border-box;
+            padding: 0;
+        }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            height: auto;
+        }
+
+        input[type="search"] {
+            -webkit-appearance: textfield;
+            box-sizing: content-box;
+        }
+
+        input[type="search"]::-webkit-search-cancel-button,
+        input[type="search"]::-webkit-search-decoration {
+            -webkit-appearance: none;
+        }
+
+        fieldset {
+            border: 1px solid silver;
+            margin: 0 2px;
+            padding: .35em .625em .75em;
+        }
+
+        textarea {
+            overflow: auto;
+        }
+
+        optgroup {
+            font-weight: 700;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        td,
+        th {
+            padding: 0;
+        }
+
+        /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
+        @media print {
+            *,:after,:before {
+                background: transparent!important;
+                color: #000!important;
+                box-shadow: none!important;
+                text-shadow: none!important;
+            }
+
+            a,a:visited {
+                text-decoration: underline;
+            }
+
+            a[href]:after {
+                content: " (" attr(href) ")";
+            }
+
+            abbr[title]:after {
+                content: " (" attr(title) ")";
+            }
+
+            a[href^="#"]:after,a[href^="javascript:"]:after {
+                content: "";
+            }
+
+            blockquote,pre {
+                border: 1px solid #999;
+                page-break-inside: avoid;
+            }
+
+            thead {
+                display: table-header-group;
+            }
+
+            img,tr {
+                page-break-inside: avoid;
+            }
+
+            img {
+                max-width: 100%!important;
+            }
+
+            h2,h3,p {
+                orphans: 3;
+                widows: 3;
+            }
+
+            h2,h3 {
+                page-break-after: avoid;
+            }
+
+            .navbar {
+                display: none;
+            }
+
+            .btn>.caret,.dropup>.btn>.caret {
+                border-top-color: #000!important;
+            }
+
+            .label {
+                border: 1px solid #000;
+            }
+
+            .table {
+                border-collapse: collapse!important;
+            }
+
+            .table td,.table th {
+                background-color: #fff!important;
+            }
+
+            .table-bordered td,.table-bordered th {
+                border: 1px solid #ddd!important;
+            }
+        }
+
+        @font-face {
+            font-family: 'Glyphicons Halflings';
+            src: url(../fonts/glyphicons-halflings-regular.eot);
+            src: url(../fonts/glyphicons-halflings-regular.eot?#iefix) format("embedded-opentype"),
+                 url(../fonts/glyphicons-halflings-regular.woff2) format("woff2"),
+                 url(../fonts/glyphicons-halflings-regular.woff) format("woff"),
+                 url(../fonts/glyphicons-halflings-regular.ttf) format("truetype"),
+                 url(../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg");
+        }
+
+        .glyphicon {
+            position: relative;
+            top: 1px;
+            display: inline-block;
+            font-family: 'Glyphicons Halflings';
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .glyphicon-asterisk:before {
+            content: "\002a";
+        }
+
+        .glyphicon-plus:before {
+            content: "\002b";
+        }
+
+        .glyphicon-eur:before, .glyphicon-euro:before {
+            content: "\20ac";
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header" class="container-fluid bg-light py-3">
+        <div class="container text-center">
+            <h1 class="canoe-titre">CANOË DE BÉTON</h1>
+            <h2 class="border-green">UNIVERSITÉ DE SHERBROOKE UDES</h2>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer id="footer" class="container-fluid bg-light py-3 text-center">
+        <p>&copy; 2024 Université de Sherbrooke - Canoë de Béton</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+
+</html>

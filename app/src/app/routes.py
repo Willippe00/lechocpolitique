@@ -28,6 +28,12 @@ def carteStandAlone():
         map_content = file.read()
     return render_template('carte.html', map_file=map_file, map_content=map_content)
 
+
+@app.route('/bateau')
+def bateau():
+    print("bateau")
+    return render_template('indexCanoe.html')
+
 @app.route('/logo')
 def logo():
     # Assurez-vous que l'image est dans le répertoire "static/images/"
