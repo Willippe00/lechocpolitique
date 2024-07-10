@@ -44,15 +44,16 @@
         h1 {
             font-size: 2.5em;
             margin-bottom: 20px;
+            margin-left: 40px; /* Ajout de la marge à gauche */
         }
         p {
             font-size: 1.2em;
             margin-bottom: 20px;
         }
         .logo {
-            width: 100px;
+            width: 50px; /* Ajustez la taille du logo si nécessaire */
             height: auto;
-            margin-bottom: 20px;
+            margin-bottom: 0; /* Retirez la marge inférieure */
         }
         #map-container {
             margin-top: 20px;
@@ -63,13 +64,71 @@
             text-decoration: none;
             font-size: 1.5em;
         }
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+        }
+        .navigation ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .navigation li {
+            margin: 0 15px;
+        }
+        .navigation a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+        }
+        .navigation a:hover {
+            color: #007BFF;
+        }
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .header-content {
+                flex-direction: row;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+            .navigation ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            .navigation li {
+                margin: 10px 0;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Le choc politique</h1>
-        <img src="\logo" alt="Le Choc Politique Logo" class="logo">
-        <!-- Ajoutez ici votre navigation et autres éléments de l'entête -->
+        <div class="header-container">
+            <div class="header-content">
+                <img src="\logo" alt="Le Choc Politique Logo" class="logo">
+                <h1>Le Choc Politique</h1>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#news">Actualités</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     
     <main>
