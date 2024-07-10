@@ -11,7 +11,8 @@ def run_http():
 
 def run_https():
     context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-    context.load_cert_chain('/home/william/Documents/production/lechocpolitique/SSL/certfile.pem', 'C:\Users\willi\Documents\UniWill\projet\lechocpolitique\SSL\keyfile.pem'    serve(app_https, host='0.0.0.0', port=5001, _sock=None, expose_tracebacks=True, threads=8, url_scheme='https', ssl_context = context)
+    context.load_cert_chain('/home/william/Documents/production/lechocpolitique/SSL/certfile.pem', r'C:\Users\willi\Documents\UniWill\projet\lechocpolitique\SSL\keyfile.pem')
+    serve(app_https, host='0.0.0.0', port=5001, _sock=None, expose_tracebacks=True, threads=8, url_scheme='https', ssl_context=context)
 
 if __name__ == "__main__":
     # Start HTTP server
