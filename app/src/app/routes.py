@@ -17,7 +17,7 @@ def carteStandAlone():
     map_name = request.args.get('map', 'cartevierge')  # Par défaut 'map1'
     map_file = f'{map_name}.html'
     
-    map_path = os.path.join(r'C:\Users\willi\Documents\UniWill\projet\lechocpolitique\app\rst\map', map_file)
+    map_path = os.path.join(r'../rst/map', map_file)
     # except:
     #     map_path = os.path.join(r'/home/william/Documents/production/lechocpolitique/app/rst/map', map_file)
     print(map_path)
@@ -38,7 +38,7 @@ def logo():
     image_path = r'C:\Users\willi\Documents\UniWill\projet\lechocpolitique\app\rst\image\logo\image.png'
 
     if not os.path.exists(image_path):
-        image_path = r'/home/william/Documents/production/lechocpolitique/app/rst/image/logo/image.png'
+        image_path = r'../rst/image/logo/image.png'
         if not os.path.exists(image_path):
             return "Carte non trouvée", 404
     return send_file(image_path, mimetype='image/png')
